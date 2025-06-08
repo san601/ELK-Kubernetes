@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  hamster:
+    build: .
+    container_name: hamster_app
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./database.db:/app/database.db
+      - ./keys:/app/keys:ro
+    # environment:
+    #   - ELASTIC_APM_SERVICE_NAME=hamster-flask-app
+    #   - ELASTIC_APM_SERVER_URL=http://apm-server:8200
+    #   - ELASTIC_APM_ENVIRONMENT=development
+    #   - FLASK_ENV=development
+
+
+  # nginx:
+  #   image: nginx:latest
+  #   container_name: nginx_proxy
+  #   volumes:
+  #     - ./nginx.conf:/etc/nginx/nginx.conf:ro
+  #   ports:
+  #     - "9000:80"
+  #   depends_on:
+  #     - hamster
+
+ 
