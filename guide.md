@@ -10,6 +10,7 @@ kubectl scale statefulsets elasticsearch-master --replicas=2
 helm upgrade --install kibana elastic/kibana -n elk -f .\kibana\kibana.yaml
 helm upgrade --install logstash elastic/logstash -n elk -f .\logstash\logstash.yaml
 helm upgrade --install apm-server elastic/apm-server -n elk -f .\apm-server\apm-server.yaml
+helm install elastalert2 elastalert2/elastalert2
 ```
 
 To update
