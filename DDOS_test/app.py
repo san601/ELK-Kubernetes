@@ -10,13 +10,13 @@ app = Flask(__name__)
 app.config['ELASTIC_APM'] = {
     'SERVICE_NAME': 'my-windows-flask-app',
     'SECRET_TOKEN': '',  # Add if your APM server uses one
-    'SERVER_URL': 'http://192.168.0.5:8200',
+    'SERVER_URL': 'http://127.0.0.1:8200',
     'ENVIRONMENT': 'development',
 }
 
 apm = ElasticAPM(app)
 
-log_dir = r"C:\elk_apm_test_flask\log_dir"
+log_dir = r"D:\elk_apm_test_flask\log_dir"
 os.makedirs(log_dir, exist_ok=True)
 
 log_file_path = os.path.join(log_dir, "flask_access.log")
@@ -26,7 +26,7 @@ handler = RotatingFileHandler(log_file_path, maxBytes=10*1024*1024, backupCount=
 handler.setLevel(logging.INFO)
 
 # Log format - can be JSON or plain text
-formatter = logging.Formatter('%(asctime)s %(message)s')
+formatter = logging.Formatter('%(message)s')
 handler.setFormatter(formatter)
 
 app.logger.addHandler(handler)

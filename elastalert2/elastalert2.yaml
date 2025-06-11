@@ -188,7 +188,7 @@ secretConfigName: elastalert-config-secret
 secretRulesName: elastalert-rules-secret
 
 # Additionally, you must specificy which rules to load from the secret
-secretRulesList: [ "gmail" ]
+secretRulesList: [ "ddos" ]
 
 # Example of secret rules
 
@@ -221,8 +221,9 @@ secretRulesList: [ "gmail" ]
 # Command and args override for container e.g. (https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/)
 # command: ["YOUR_CUSTOM_COMMAND"]
 # args: ["YOUR", "CUSTOM", "ARGS"]
+
 command: ["elastalert"]
-args: ["--verbose", "--config", "/opt/elastalert/config.yaml", "--rule", "/opt/elastalert/rules/gmail.yaml"]
+args: ["--verbose", "--config", "/opt/elastalert/config.yaml", "--rule", "/opt/elastalert/rules/ddos.yaml"]
 
 # specifies the rules volume to be used
 rulesVolumeName: "rules"
